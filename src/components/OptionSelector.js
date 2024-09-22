@@ -1,7 +1,7 @@
 import React from 'react';
 
 const OptionSelector = ({ selectedOptions, onOptionChange }) => {
-    const options = ['Alphabets', 'Numbers', 'Highest alphabet'];
+    const options = ['Alphabets', 'Numbers', 'Highest lowercase alphabet'];
 
     return (
         <div className="option-selector">

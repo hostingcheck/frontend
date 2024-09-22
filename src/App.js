@@ -12,19 +12,34 @@ function App() {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (input) => {
+  const handleSubmit = async (input, file) => {
     setError('');
     setIsLoading(true);
     try {
       const parsedInput = JSON.parse(input);
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/bfhl`, parsedInput);
+
+      const payload = {
+        data: parsedInput.data,
+        file_b64: file ? await convertFileToBase64(file) : null,
+      };
+
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/bfhl`, payload);
       setResponse(res.data);
-      setSelectedOptions(['Alphabets', 'Numbers', 'Highest alphabet']);
+      setSelectedOptions(['Alphabets', 'Numbers', 'Highest lowercase alphabet']);
     } catch (err) {
       setError('Invalid JSON input or API error');
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const convertFileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = error => reject(error);
+    });
   };
 
   const handleOptionChange = (option) => {

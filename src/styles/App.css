@@ -31,6 +31,10 @@ body {
   font-weight: 700;
 }
 
+.file-input {
+    margin: 20px 0;
+}
+
 .header p {
   font-size: 1.2rem;
   margin-top: 10px;

@@ -1,10 +1,11 @@
-:root {
+ :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
   --background-gradient: linear-gradient(135deg, #002f6c, #003d92, #004eb5);
   --text-color: #ffffff;
-  --button-gradient: linear-gradient(90deg, #34a853, #0a9d58);
+  --button-gradient: linear-gradient(135deg, #56CCF2, #2F80ED);
   --error-color: #e74c3c;
+  --watermark-gradient: linear-gradient(90deg, #FF6B6B, #FFD93D);
 }
 
 body {
@@ -81,22 +82,22 @@ body {
 }
 
 .submit-button {
-  padding: 12px 30px;
+  padding: 15px 40px;
   background: var(--button-gradient);
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .submit-button:hover {
-  background: linear-gradient(90deg, #30c87b, #0ac66b);
-  transform: translateY(-3px);
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #76D1F3, #4A90E2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .submit-button:active {
@@ -158,22 +159,24 @@ body {
   font-size: 1.3rem;
 }
 
-/* Watermark */
+/* Center-aligned Watermark with Gradient Text */
 .watermark {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-  font-style: italic;
-  opacity: 0.85;
-  font-family: 'Roboto', sans-serif;
+  background: var(--watermark-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .watermark:hover {
   opacity: 1;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 
@@ -186,4 +189,3 @@ body {
     font-size: 0.8rem;
   }
 }
-

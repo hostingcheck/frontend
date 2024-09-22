@@ -27,7 +27,11 @@ function App() {
       setResponse(res.data);
       setSelectedOptions(['Alphabets', 'Numbers', 'Highest lowercase alphabet']);
     } catch (err) {
-      setError('Invalid JSON input or API error');
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message); // Use backend error message
+      } else {
+        setError('Invalid JSON input or API error');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -69,8 +73,12 @@ function App() {
           </>
         )}
       </main>
+      <div className="watermark">
+        Created by Lakshya Raj Vijay | Roll Number: RA2111003011629 | lv3194@srmist.edu.in
+      </div>
     </div>
   );
 }
 
 export default App;
+

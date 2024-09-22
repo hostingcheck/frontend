@@ -17,10 +17,10 @@ const ResponseDisplay = ({ response, selectedOptions }) => {
                     <p>{response.numbers.join(', ')}</p>
                 </div>
             )}
-            {selectedOptions.includes('Highest alphabet') && (
+            {selectedOptions.includes('Highest lowercase alphabet') && (
                 <div className="response-item">
-                    <h3>Highest alphabet</h3>
-                    <p>{response.highest_alphabet.join(', ')}</p>
+                    <h3>Highest lowercase alphabet</h3>
+                    <p>{response.highest_lowercase_alphabet.join(', ')}</p>
                 </div>
             )}
         </div>
